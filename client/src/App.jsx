@@ -1,7 +1,9 @@
+import Header from "./components/Header";
+
 function App() {
   return (
     <>
-      <p className=""> olá mundo </p>
+      <Header />
     </>
   );
 }
