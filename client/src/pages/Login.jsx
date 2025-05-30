@@ -1,10 +1,30 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <section>
-      <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(225px,1fr))] gap-9 p-8">
-        login
+    <section className="flex items-center">
+      <div className="mx-auto flex w-full max-w-96 flex-col items-center gap-4">
+        <h1 className="text-2xl font-bold">Faça seu Login</h1>
+        <form className="flex w-full flex-col gap-4">
+          <input
+            className="w-full rounded-full border border-gray-300 px-4 py-2"
+            type="text"
+            placeholder="Digite seu email"
+          />
+          <input
+            className="w-full rounded-full border border-gray-300 px-4 py-2"
+            placeholder="Digite sua senha"
+            type="password"
+          />
+          <button>Entrar</button>
+        </form>
+        <p className="">
+          Ainda nao possui uma conta?
+          <Link to="/register" className="font-semibold underline">
+            Registre-se aqui
+          </Link>
+        </p>
       </div>
     </section>
   );

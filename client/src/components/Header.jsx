@@ -10,7 +10,7 @@ import { LuMenu } from "react-icons/lu";
 const Header = () => {
   return (
     <header className="shadow-md">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-8">
         <Link to="/" className="flex items-center">
           <FaHotel color="#121063" size={40} />
           <p className="text-primary text-2xl font-bold">Hotels</p>
