@@ -17,7 +17,9 @@ const Login = () => {
             placeholder="Digite sua senha"
             type="password"
           />
-          <button>Entrar</button>
+          <button className="bg-primary w-full cursor-pointer rounded-full px-4 py-2 font-bold text-white">
+            Entrar
+          </button>
         </form>
         <p className="">
           Ainda nao possui uma conta?
