@@ -9,7 +9,7 @@ const Login = () => {
         <form className="flex w-full flex-col gap-4">
           <input
             className="w-full rounded-full border border-gray-300 px-4 py-2"
-            type="text"
+            type="email"
             placeholder="Digite seu email"
           />
           <input
