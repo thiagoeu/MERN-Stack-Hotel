@@ -60,3 +60,42 @@ export async function userRegisterController(req, res) {
       .json({ message: error.message, error: true, success: false });
   }
 }
+
+export async function userLoginController(req, res) {
+  try {
+    const { email, password } = req.body;
+
+    // Verificar se o usuario possui cadastro
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({
+        message: "Email nao cadastrado",
+        error: true,
+        success: false,
+      });
+    }
+
+    // Verificar se a senha esta correta
+    const isValidPassword = await bcrypt.compareSync(password, user.password);
+    if (!isValidPassword) {
+      return res.status(400).json({
+        message: "Senha incorreta",
+        error: true,
+        success: false,
+      });
+    }
+
+    res.status(200).json({
+      message: "Login realizado com sucesso",
+      error: false,
+      success: true,
+      user,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+      success: false,
+      error: true,
+    });
+  }
+}
