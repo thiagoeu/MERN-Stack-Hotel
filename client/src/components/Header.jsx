@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Link } from "react-router-dom";
 
 import { FaHotel } from "react-icons/fa6";
@@ -7,7 +5,7 @@ import { BsSearch } from "react-icons/bs";
 import { FaCircleUser } from "react-icons/fa6";
 import { LuMenu } from "react-icons/lu";
 
-const Header = () => {
+const Header = ({ user }) => {
   return (
     <header className="shadow-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-8">
@@ -36,9 +34,12 @@ const Header = () => {
           <div className="">
             <LuMenu color="lightgray" size={20} />
           </div>
-          <p className="max-w-20 truncate sm:max-w-32">
-            Usuario doasoidha doasijdaosida odaijsdoasi
-          </p>
+
+          {user ? (
+            <p className="max-w-20 truncate sm:max-w-32">{user.name}</p>
+          ) : (
+            <></>
+          )}
         </Link>
       </nav>
     </header>

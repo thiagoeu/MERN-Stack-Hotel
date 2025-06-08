@@ -1,24 +1,26 @@
-import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Login = () => {
+const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // Conexão com o backend
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(`recebeu o email ${email} e a senha ${password}`);
 
     if (email && password) {
-      const axiosResponse = await axios.post(
-        "http://localhost:3001/api-v1/users/login",
-        {
+      try {
+        const { data: userDoc } = await axios.post("/users/login", {
           email,
           password,
-        },
-      );
-      console.log(axiosResponse);
+        });
+        setUser(userDoc.user);
+        console.log(userDoc);
+      } catch (error) {
+        alert(`Error ao fazer login: ${error.response.data.message}`);
+      }
     } else {
       alert("Preencha todos os campos");
     }
